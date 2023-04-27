@@ -23,6 +23,12 @@ Once the application is running, you can use a tool like Postman to interact wit
 ## ERD Diagram 
 ![ERD diagram](ERD.png)
 
+### Relationships 
+The User entity is connected to the UserRole entity with a one-to-many relationship
+The Role entity is connected to the UserRole entity with a one-to-many relationship
+The Role entity is connected to the RolePermission entity with a one-to-many relationship
+The Permission entity is connected to the RolePermission entity with a many-to-one relationship,
+
 ## Contributing 
 Contributions to this project are welcome. If you find a bug or have an idea for a new feature, feel free to open an issue or submit a pull request. Before contributing, please read the Contributing Guidelines.
 
