@@ -6,7 +6,7 @@ This is a mini-project to build a user authentication and authorization system u
 - Project Overview
 - Technologies Used
 - Usage
-
+- ERD Diagram
 
 ## Project Overview
 This mini-project aims to build a user authentication and authorization system that integrates with existing applications. Users can sign up, log in, and access protected resources based on their roles and permissions. The PostgreSQL database will consist of three models: User, Role, and Permission. The application will be developed using Spring Boot and will be running on the Tomcat server.
@@ -19,6 +19,9 @@ This mini-project aims to build a user authentication and authorization system t
 
 ## Usage
 Once the application is running, you can use a tool like Postman to interact with the API. You can sign up for a new account, log in to an existing account, and access protected resources based on your user roles and permissions.
+
+## ERD Diagram 
+![ERD diagram](ERD.png)
 
 ## Contributing 
 Contributions to this project are welcome. If you find a bug or have an idea for a new feature, feel free to open an issue or submit a pull request. Before contributing, please read the Contributing Guidelines.
