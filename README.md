@@ -24,6 +24,8 @@ This mini-project aims to build a user authentication and authorization system t
 Once the application is running, you can use a tool like Postman to interact with the API. You can sign up for a new account, log in to an existing account, and access protected resources based on your user roles and permissions.
 
 
+
+
 ## MVC Diagram
 ![MVC diagram](MVC_S.png)
 
@@ -36,19 +38,6 @@ Once the application is running, you can use a tool like Postman to interact wit
 - The Role entity is connected to the UserRole entity with a one-to-many relationship
 - The Role entity is connected to the RolePermission entity with a one-to-many relationship
 - The Permission entity is connected to the RolePermission entity with a many-to-one relationship,
-
-## User Stories 
-- As a user, I want to be able to create a new account, so that I can access protected resources
-- As a user, I want to be able to log in to my account, so that I can access my personal Information and protected resources.
-- As a user, I want to be able to update my account information, so that my profile is accurate and up-to-date.
-
-## Contributing 
-Contributions to this project are welcome. If you find a bug or have an idea for a new feature, feel free to open an issue or submit a pull request. Before contributing, please read the Contributing Guidelines.
-
-## Credits
-This project was created by [Eugene]. Special thanks to [Suresh & Drubo] for their guidance and support.
-
-
 
 ## Project Approach
 ### Development Methodology: Agile
@@ -63,4 +52,23 @@ For this mini-project, I'll be using Spring Boot as my framework for building th
 
 Github Projects is a great tool for solo developers because it allows me to create and manage a Kanban board that tracks the progress of the project. This will help me stay organized, prioritize tasks, and collaborate effectively with myself.
 
+[Link to Kanban Board](https://github.com/users/builde7b0b/projects/2)
+
 Overall, my approach to this mini-project will be to use Agile as my development methodology, Spring Boot and PostgreSQL as my technology stack, and Github Projects as my project management tool. By breaking down the work into small, manageable chunks and iterating on the software over time, I can ensure that I'm building a high-quality, well-documented API that meets the needs of my users
+
+## User Stories 
+- As a user, I want to be able to create a new account, so that I can access protected resources
+- As a user, I want to be able to log in to my account, so that I can access my personal Information and protected resources.
+- As a user, I want to be able to update my account information, so that my profile is accurate and up-to-date.
+
+
+
+
+## Contributing 
+Contributions to this project are welcome. If you find a bug or have an idea for a new feature, feel free to open an issue or submit a pull request. Before contributing, please read the Contributing Guidelines.
+
+## Credits
+This project was created by [Eugene]. Special thanks to [Suresh & Drubo] for their guidance and support.
+
+
+
