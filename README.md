@@ -27,10 +27,10 @@ Once the application is running, you can use a tool like Postman to interact wit
 
 
 ## MVC Diagram
-![MVC diagram](MVC_S.png)
+![MVC diagram](images/MVC.png)
 
 ## ERD Diagram 
-![ERD diagram](ERD.png)
+![ERD diagram](images/ERD.png)
 
 
 ### Relationships 
