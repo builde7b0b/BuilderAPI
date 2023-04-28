@@ -4,6 +4,7 @@ import com.builderAPI.builder.services.UserService;
 
 import java.util.List;
 
+@RestController
 public class UserController {
 
     private UserService userService;
