@@ -3,6 +3,7 @@ package com.builderAPI.builder.services;
 import com.builderAPI.builder.model.User;
 import com.builderAPI.builder.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.context.config.ConfigDataResourceNotFoundException;
 import org.springframework.data.crossstore.ChangeSetPersister;
 import org.springframework.stereotype.Service;
 
@@ -37,6 +38,10 @@ public class UserService {
         user.setRoles(userDetails.getRoles());
 
         return userRepository.save(user);
+    }
+
+    public void deleteUser(Long userId) throws ConfigDataResourceNotFoundException, ChangeSetPersister.NotFoundException {
+        User user = userRepository.findById(userId).orElseThrow(() -> new ChangeSetPersister.NotFoundException());
     }
 
 

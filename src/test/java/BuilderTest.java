@@ -1,4 +1,4 @@
-import com.builderAPI.builder.Model.User;
+import com.builderAPI.builder.model.User;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;

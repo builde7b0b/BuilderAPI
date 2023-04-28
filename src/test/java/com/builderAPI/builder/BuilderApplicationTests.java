@@ -1,6 +1,6 @@
 package com.builderAPI.builder;
 
-import com.builderAPI.builder.Model.User;
+import com.builderAPI.builder.model.User;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
