@@ -26,15 +26,15 @@ Once the application is running, you can use a tool like Postman to interact wit
 ![ERD diagram](ERD.png)
 
 ### Relationships 
-The User entity is connected to the UserRole entity with a one-to-many relationship
-The Role entity is connected to the UserRole entity with a one-to-many relationship
-The Role entity is connected to the RolePermission entity with a one-to-many relationship
-The Permission entity is connected to the RolePermission entity with a many-to-one relationship,
+- The User entity is connected to the UserRole entity with a one-to-many relationship
+- The Role entity is connected to the UserRole entity with a one-to-many relationship
+- The Role entity is connected to the RolePermission entity with a one-to-many relationship
+- The Permission entity is connected to the RolePermission entity with a many-to-one relationship,
 
 ## User Stories 
-As a user, I want to be able to create a new account, so that I can access protected resources
-As a user, I want to be able to log in to my account, so that I can access my personal Information and protected resources.
-As a user, I want to be able to update my account information, so that my profile is accurate and up-to-date.
+- As a user, I want to be able to create a new account, so that I can access protected resources
+- As a user, I want to be able to log in to my account, so that I can access my personal Information and protected resources.
+- As a user, I want to be able to update my account information, so that my profile is accurate and up-to-date.
 
 ## Contributing 
 Contributions to this project are welcome. If you find a bug or have an idea for a new feature, feel free to open an issue or submit a pull request. Before contributing, please read the Contributing Guidelines.
