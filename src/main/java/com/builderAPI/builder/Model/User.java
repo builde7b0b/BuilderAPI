@@ -1,4 +1,4 @@
-package com.builderAPI.builder.Model;
+package com.builderAPI.builder.model;
 
 import jakarta.persistence.*;
 import org.springframework.boot.autoconfigure.domain.EntityScan;

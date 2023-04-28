@@ -1,2 +1,4 @@
-package com.builderAPI.builder.model;public class Role {
+package com.builderAPI.builder.model;
+
+public class Role {
 }
