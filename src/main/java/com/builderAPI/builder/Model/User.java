@@ -7,7 +7,7 @@ import org.springframework.boot.autoconfigure.domain.EntityScan;
  * Entity class that represents a user
  */
 @Entity
-@Table(name = "user")
+@Table(name = "users")
 public class User {
 
     @Id
