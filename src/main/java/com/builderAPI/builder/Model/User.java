@@ -1,17 +1,28 @@
 package com.builderAPI.builder.Model;
 
+import jakarta.persistence.*;
+import org.springframework.boot.autoconfigure.domain.EntityScan;
+
 /**
  * Entity class that represents a user
  */
+@Entity
+@Table(name = "user")
 public class User {
 
+    @Id
+    @Column
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column
     private String userName;
 
+    @Column
     private String emailAddress;
+    @Column
     private String password;
-
+    @Column
     private String roles;
 
 
