@@ -7,6 +7,7 @@ This is a mini-project to build a user authentication and authorization system u
 - Technologies Used
 - Usage
 - ERD Diagram
+- MVC Diagram
 - User Stories 
 
 
@@ -22,8 +23,13 @@ This mini-project aims to build a user authentication and authorization system t
 ## Usage
 Once the application is running, you can use a tool like Postman to interact with the API. You can sign up for a new account, log in to an existing account, and access protected resources based on your user roles and permissions.
 
+
+## MVC Diagram
+![MVC diagram](MVC_S.png)
+
 ## ERD Diagram 
 ![ERD diagram](ERD.png)
+
 
 ### Relationships 
 - The User entity is connected to the UserRole entity with a one-to-many relationship
