@@ -1,13 +1,19 @@
 package com.builderAPI.builder.model;
 
+import jakarta.persistence.*;
+
 /**
  * a Permission class that represents a permission in your application
  *
  */
+@Entity
 public class Permission {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private Permission name;
+    @Enumerated(EnumType.STRING)
+    private PermissionName name;
 
     public Permission() {
     }
