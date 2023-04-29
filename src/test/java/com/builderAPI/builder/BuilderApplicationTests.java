@@ -11,6 +11,8 @@ import static org.springframework.test.util.AssertionErrors.assertTrue;
 @SpringBootTest
 class BuilderApplicationTests {
 
+
+
 	@Test
 	void contextLoads() {
 	}
@@ -28,7 +30,6 @@ class BuilderApplicationTests {
 		assertEquals("password", user.getPassword());
 		assertEquals("ROLE_USER", user.getRoles());
 	}
-
 
 
 }
