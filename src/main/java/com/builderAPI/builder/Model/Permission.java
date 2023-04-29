@@ -18,7 +18,7 @@ public class Permission {
     public Permission() {
     }
 
-    public Permission(Long id, Permission name) {
+    public Permission(Long id, PermissionName name) {
         this.id = id;
         this.name = name;
     }
@@ -32,13 +32,14 @@ public class Permission {
         this.id = id;
     }
 
-    public Permission getName() {
+    public PermissionName getName() {
         return name;
     }
 
-    public void setName(Permission name) {
+    public void setName(PermissionName name) {
         this.name = name;
     }
 
 
 }
+
