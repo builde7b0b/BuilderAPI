@@ -3,6 +3,9 @@ package com.builderAPI.builder.model;
 import jakarta.persistence.*;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 
+import java.util.HashSet;
+import java.util.Set;
+
 /**
  * Entity class that represents a user
  */
@@ -22,8 +25,14 @@ public class User {
     private String emailAddress;
     @Column
     private String password;
-    @Column
-    private String roles;
+
+    @ManyToMany(fetch = FetchType.EAGER) // many-to-many User - Role | role should be eagerly fetched when user is retrieved
+    @JoinTable(name = "user_roles", // mapping details of relationship + name of join table
+            joinColumns = @JoinColumn(name = "user_id"), // specifies FK column that references User's PK
+            inverseJoinColumns = @JoinColumn(name = "role_id")) //specifies FK column in join table that references Role's PK
+    private Set<Role> roles = new HashSet<>();
+
+
 
     /**
      * Default constructor for User class
