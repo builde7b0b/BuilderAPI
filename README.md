@@ -8,7 +8,11 @@ This is a mini-project to build a user authentication and authorization system u
 - Usage
 - ERD Diagram
 - MVC Diagram
-- User Stories 
+- Relationships
+- Project Approach
+- User Stories
+- Contributing 
+- Credits
 
 
 ## Project Overview
