@@ -19,6 +19,13 @@ public class SecurityController {
 
     private UserService userService;
 
+    //NEED TO DEFINE custom clases 'LoginRequest/Response'
+
+
+
+    //using the AuthenticationManager to authenticate the user and the JwtTokenUtil to generate and validate JWT tokens.
+    //using a UserService to load the user's details for authentication purposes
+
     public ResponseEntity<LoginResponse> login(@RequestBody LoginRequest loginRequest) {
         Authentication authentication = authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(loginRequest.getEmail(), loginRequest.getPassword()));
