@@ -14,17 +14,24 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(webEnvironment =  SpringBootTest.WebEnvironment.RANDOM_PORT)
-@AutoConfigureMockMvc
+@AutoConfigureMockMvc // allows us to use MockMvc to perform HTTP requests against our application.
 public class SecurityConfigTest {
 
     private MockMvc mockMvc;
 
     public void testAuthenticatedUserAccess() throws Exception {
         mockMvc.perform(get("/secured-resource")
+                //sets up an authenticated user with the username "user", password "password", and role "USER".
                 .with(user("user").password("password").roles("USER")))
                 .andExpect(status().isOk())
                 .andExpect(content().string(containsString("Access granted to user")));
+        // assert the response status code and body, respectively.
     }
 
-    
+    public void testUnauthorizedUserAccess() throws Exception {
+        mockMvc.perform(get("/secured-resource"))
+                .andExpect(status().isUnauthorized());
+    }
+
+
 }
