@@ -1,4 +1,9 @@
 package com.builderAPI.builder.repository;
 
-public interface JwtTokenRepository {
+import org.springframework.stereotype.Repository;
+
+@Repository
+public interface JwtTokenRepository extends JpaRepository<InvalidJwtToken, Long> {
+
+    Optional<InvalidJwtToken> findByToken(String token);
 }
