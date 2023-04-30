@@ -3,6 +3,8 @@ package com.builderAPI.builder.controller;
 import com.builderAPI.builder.model.User;
 import com.builderAPI.builder.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.context.config.ConfigDataResourceNotFoundException;
+import org.springframework.data.crossstore.ChangeSetPersister;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
@@ -52,6 +54,14 @@ public class UserController {
     @PostMapping("/")
     public User createUser(@Validated @RequestBody User user) {
         return userService.createUser(user);
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<User> updateUser(@PathVariable(value = "id") Long userId,
+                                           @Validated @RequestBody User userDetails)
+            throws ConfigDataResourceNotFoundException, ChangeSetPersister.NotFoundException {
+        User updatedUser = userService.updateUser(userId, userDetails);
+        return ResponseEntity.ok(updatedUser);
     }
 
 
