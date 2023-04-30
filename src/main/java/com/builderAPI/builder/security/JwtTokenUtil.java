@@ -42,13 +42,30 @@ public class JwtTokenUtil {
     }
 
     //check if the token has expired
+    private Boolean isTokenExpired(String token) {
+        final Date expiration = getExpirationDateFromToken(token);
+        return expiration.before(new Date());
+    }
 
 
     //generate token for user
+    public String generateToken(UserDetails userDetails) {
+        Map<String, Object> claims = new HashMap<>();
+        return doGenerateToken(claims, userDetails.getUsername());
+    }
 
 
     // while creating the token
     // do this
+    //1. define claims of the token, Issuer, Exp, Subject, ID
+    //2. Sign JWT using Hs%12 Algo and secret key
+    //3. Use JWS Compact Serialization, URL-safe for claims transfers
+    // URL safe string rep of JWT
+    private String doGenerateToken(Map<String, Object> claims, String subject) {
+        return Jwts.builder().setClaims(claims).setSubject(subject).setIssuedAt(new Date(System.currentTimeMillis()))
+        .setExpiration(new Date(System.currentTimeMillis() + JWT_TOKEN_VALIDITY * 1000))
+                .signWith(SignatureAlgorithm.HS256, secret).compact();
+    }
 
 
 
