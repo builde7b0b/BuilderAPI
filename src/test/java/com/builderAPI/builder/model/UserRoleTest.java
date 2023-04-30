@@ -4,6 +4,8 @@ import com.builderAPI.builder.repository.RoleRepository;
 import com.builderAPI.builder.repository.UserRepository;
 import com.builderAPI.builder.repository.UserRoleRepository;
 import jakarta.transaction.Transactional;
+import org.junit.Test;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import java.util.Arrays;
@@ -16,10 +18,13 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 @Transactional //useful to ensure that test does not modity the database, start each test clean
 public class UserRoleTest {
 
-    private UserRepository;
+    @Autowired
+    private UserRepository userRepository;
+    @Autowired
     private RoleRepository roleRepository;
+    @Autowired
     private UserRoleRepository userRoleRepository;
-
+    @Test
     public void testCreateUserRole() {
         User user = new User();
         user.setUserName("John");
@@ -27,12 +32,12 @@ public class UserRoleTest {
         user.setPassword("password");
         user.setRoles(new HashSet<>(Arrays.asList(RoleName.ROLE_USER)));
 
-        Role role = new Role(RoleName.ROLE_USER);
+        Role role = new Role(user.getId(), RoleName.ROLE_USER);
 
         userRepository.save(user);
         roleRepository.save(role);
 
-        UserRole userRole = newUserRole();
+        UserRole userRole = new UserRole();
         userRole.setUser(user);
         userRole.setRole(role);
 
