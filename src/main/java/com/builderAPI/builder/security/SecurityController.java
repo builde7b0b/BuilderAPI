@@ -1,6 +1,7 @@
 package com.builderAPI.builder.security;
 
 import com.builderAPI.builder.services.UserService;
+import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.boot.autoconfigure.neo4j.Neo4jProperties;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -28,7 +29,13 @@ public class SecurityController {
 
 
     }
-    
+
+    public ResponseEntity<Void> logout(HttpServletRequest request) {
+        String token = jwtTokenUtil.getTokenFromRequest(request);
+        jwtTokenUtil.invalidateToken(token);
+        return ResponseEntity.ok().build();
+    }
+
 
 
 }
