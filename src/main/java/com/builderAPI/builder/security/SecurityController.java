@@ -11,7 +11,7 @@ public class SecurityController {
 
     private JwtTokenUtil jwtTokenUtil;
 
-    private UserService userService; 
+    private UserService userService;
 
 
 }
