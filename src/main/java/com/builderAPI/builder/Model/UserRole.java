@@ -2,6 +2,12 @@ package com.builderAPI.builder.model;
 
 import jakarta.persistence.*;
 
+/**
+ * Represents many to many relationship between users and roles.
+ * UserRole has composite PK consisting of userID and role ID.
+ * Both User and Role classess are related to UserRole via user_id and role_id FK's, respectively.
+ *
+ */
 @Entity
 @Table(name = "user_roles")
 public class UserRole {
