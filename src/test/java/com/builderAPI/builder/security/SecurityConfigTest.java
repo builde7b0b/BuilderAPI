@@ -1,6 +1,8 @@
 package com.builderAPI.builder.security;
 
+import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
@@ -17,7 +19,9 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @AutoConfigureMockMvc // allows us to use MockMvc to perform HTTP requests against our application.
 public class SecurityConfigTest {
 
+    @Autowired
     private MockMvc mockMvc;
+    @Test
 
     public void testAuthenticatedUserAccess() throws Exception {
         mockMvc.perform(get("/secured-resource")
@@ -28,6 +32,7 @@ public class SecurityConfigTest {
         // assert the response status code and body, respectively.
     }
 
+    @Test
     public void testUnauthorizedUserAccess() throws Exception {
         mockMvc.perform(get("/secured-resource"))
                 .andExpect(status().isUnauthorized());
