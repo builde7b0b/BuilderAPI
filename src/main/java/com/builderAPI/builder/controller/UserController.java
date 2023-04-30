@@ -64,6 +64,13 @@ public class UserController {
         return ResponseEntity.ok(updatedUser);
     }
 
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> deleteUser(@PathVariable(value = "id") Long userId) throws ConfigDataResourceNotFoundException, ChangeSetPersister.NotFoundException {
+        userService.deleteUser(userId);
+        return ResponseEntity.noContent().build();
+
+    }
+
 
 
 
