@@ -32,6 +32,12 @@ public class User {
             inverseJoinColumns = @JoinColumn(name = "role_id")) //specifies FK column in join table that references Role's PK
     private Set<Role> roles = new HashSet<>();
 
+    @ManyToMany(fetch = FetchType.EAGER) // many-to-many User - Permissions | role should be eagerly fetched when user is retrieved
+    @JoinTable(name = "user_permissions", // mapping details of relationship + name of join table
+            joinColumns = @JoinColumn(name = "user_id"), // specifies FK column that references User's PK
+            inverseJoinColumns = @JoinColumn(name = "permission_id")) //specifies FK column in join table that references Permission PK
+    private Set<Permission> permissions = new HashSet<>();
+
 
 
     /**
@@ -48,7 +54,7 @@ public class User {
      * @param password the user's password
      * @param roles the user's roles
      */
-    public User(Long id, String userName, String emailAddress, String password, String roles) {
+    public User(Long id, String userName, String emailAddress, String password, Set<Role> roles) {
         this.id = id;
         this.userName = userName;
         this.emailAddress = emailAddress;
@@ -128,7 +134,7 @@ public class User {
      * getter method for user roled
      * @return roles the roles to set for user
      */
-    public String getRoles() {
+    public Set<Role> getRoles() {
         return roles;
     }
 
@@ -137,7 +143,7 @@ public class User {
      * @param roles the roles to set for the user
      */
 
-    public void setRoles(String roles) {
+    public void setRoles(Set<Role> roles) {
         this.roles = roles;
     }
 
