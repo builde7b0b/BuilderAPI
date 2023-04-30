@@ -1,5 +1,7 @@
 package com.builderAPI.builder.security;
 
+import com.builderAPI.builder.repository.JwtTokenRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import io.jsonwebtoken.Claims;
@@ -16,6 +18,9 @@ import java.util.function.Function;
 
 @Service
 public class JwtTokenUtil {
+
+    @Autowired
+    private JwtTokenRepository jwtTokenRepository;
 
     public static final long JWT_TOKEN_VALIDITY = 5 * 60 * 60;
 
@@ -72,6 +77,8 @@ public class JwtTokenUtil {
         final String username = getUsernameFromToken(token);
         return (username.equals(userDetails.getUsername()) && !isTokenExpired(token));
     }
+
+    
 
 
 
