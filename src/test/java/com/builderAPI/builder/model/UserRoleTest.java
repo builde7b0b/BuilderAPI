@@ -1,6 +1,8 @@
 package com.builderAPI.builder.model;
 
+import com.builderAPI.builder.repository.RoleRepository;
 import com.builderAPI.builder.repository.UserRepository;
+import com.builderAPI.builder.repository.UserRoleRepository;
 import jakarta.transaction.Transactional;
 import org.springframework.boot.test.context.SpringBootTest;
 
