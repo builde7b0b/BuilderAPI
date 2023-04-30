@@ -21,6 +21,9 @@ dependencies {
 	implementation 'org.springframework.security:spring-security-web:5.5.0'
 	implementation 'org.springframework.security:spring-security-config:5.5.0'
 	implementation 'com.github.05nelsonm:authentication-manager:1.0.0-RC4'
+	implementation 'io.jsonwebtoken:jjwt:0.9.1'
+	implementation 'org.springframework.security:spring-security-jwt:1.1.1.RELEASE'
+
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 
 }
