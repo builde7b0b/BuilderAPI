@@ -51,11 +51,24 @@ public class UserController {
         return ResponseEntity.ok().body(user);
     }
 
+    /**
+     * creates a new User
+     * @param user the Usr object to be created
+     * @return the Created user object
+     */
     @PostMapping("/")
     public User createUser(@Validated @RequestBody User user) {
         return userService.createUser(user);
     }
 
+    /**
+     * Updates an existing User
+     * @param userId The ID of the user to be updated
+     * @param userDetails The udpated user details
+     * @return The updated user object
+     * @throws ConfigDataResourceNotFoundException If the user with given ID is not found
+     * @throws ChangeSetPersister.NotFoundException IF the change set could not be persisted.
+     */
     @PutMapping("/{id}")
     public ResponseEntity<User> updateUser(@PathVariable(value = "id") Long userId,
                                            @Validated @RequestBody User userDetails)
@@ -64,6 +77,13 @@ public class UserController {
         return ResponseEntity.ok(updatedUser);
     }
 
+    /**
+     * Deletes an existing User
+     * @param userId The ID of the user to be deleted
+     * @return A response entity with no content.
+     * @throws ConfigDataResourceNotFoundException If the user with the given ID is not found.
+     * @throws ChangeSetPersister.NotFoundException if the change set could not be persisted.
+     */
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteUser(@PathVariable(value = "id") Long userId) throws ConfigDataResourceNotFoundException, ChangeSetPersister.NotFoundException {
         userService.deleteUser(userId);
