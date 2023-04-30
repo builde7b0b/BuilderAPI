@@ -1,17 +1,23 @@
 package com.builderAPI.builder.services;
 
+import com.builderAPI.builder.model.Permission;
+import com.builderAPI.builder.model.Role;
 import com.builderAPI.builder.model.User;
 import com.builderAPI.builder.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.config.ConfigDataResourceNotFoundException;
 import org.springframework.data.crossstore.ChangeSetPersister;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 
 @Service
-public class UserService {
+public class UserService implements UserDetailsService {
 
     @Autowired
     private UserRepository userRepository;
@@ -72,6 +78,27 @@ public class UserService {
      */
     public void deleteUser(Long userId) throws ConfigDataResourceNotFoundException, ChangeSetPersister.NotFoundException {
         User user = userRepository.findById(userId).orElseThrow(() -> new ChangeSetPersister.NotFoundException());
+    }
+
+    @Override
+    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+        User user = userRepository.findByEmailAddress(username);
+        if (user == null) {
+            throw new UsernameNotFoundException("User not found with email address: " + username);
+        }
+        return new org.springframework.security.core.userdetails.User(user.getEmailAddress(), user.getPassword(),
+                getAuthorities(user.getRoles()));
+    }
+
+    private Collection<? extends GrantedAuthority> getAuthorities(Set<Role> roles) {
+        List<GrantedAuthority> authorities = new ArrayList<>();
+        for (Role role : roles) {
+            authorities.add(new SimpleGrantedAuthority(role.getName()));
+            for (Permission permission : role.getPermissions()) {
+                authorities.add(new SimpleGrantedAuthority(permission.getName()));
+            }
+        }
+        return authorities;
     }
 
 
