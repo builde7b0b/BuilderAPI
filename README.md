@@ -15,6 +15,12 @@ This is a mini-project to build a user authentication and authorization system u
 - Credits
 
 
+## Demo
+![GIF](https://i.imgur.com/0HbhAES.gif)
+
+
+
+
 ## Project Overview
 This mini-project aims to build a user authentication and authorization system that integrates with existing applications. Users can sign up, log in, and access protected resources based on their roles and permissions. The PostgreSQL database will consist of three models: User, Role, and Permission. The application will be developed using Spring Boot and will be running on the Tomcat server.
 
